@@ -97,7 +97,7 @@ DATABASES = {
     }
 }
 
-AUTH_USER_MODEL = 'users.CustomUser'
+AUTH_USER_MODEL = "users.CustomUser"
 SITE_ID = 1
 
 # Password validation
@@ -201,3 +201,8 @@ WAGTAILDOCS_EXTENSIONS = [
     "xlsx",
     "zip",
 ]
+
+# Wagtail settings for the image interface. See link below for more information.
+# https://wagtail.org/blog/how-we-added-svg-support-to-wagtail-50/
+
+WAGTAILIMAGES_EXTENSIONS = ["gif", "jpg", "jpeg", "png", "webp", "svg"]
