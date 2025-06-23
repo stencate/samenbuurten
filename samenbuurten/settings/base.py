@@ -79,6 +79,8 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                # `allauth` needs this from django
+                "django.template.context_processors.request",
             ],
         },
     },
@@ -90,13 +92,29 @@ WSGI_APPLICATION = "samenbuurten.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+#     }
+# }
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "samenbuurten",
+        "USER": "showcase",
+        "PASSWORD": "@hedr!stIp8*+pAph0=l",
+        "HOST": "localhost",
+        "PORT": "",
     }
 }
 
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    "django.contrib.auth.backends.ModelBackend",
+    # `allauth` specific authentication methods, such as login by email
+    "allauth.account.auth_backends.AuthenticationBackend",
+]
 AUTH_USER_MODEL = "users.CustomUser"
 SITE_ID = 1
 
@@ -206,3 +224,5 @@ WAGTAILDOCS_EXTENSIONS = [
 # https://wagtail.org/blog/how-we-added-svg-support-to-wagtail-50/
 
 WAGTAILIMAGES_EXTENSIONS = ["gif", "jpg", "jpeg", "png", "webp", "svg"]
+
+LOGIN_REDIRECT_URL = "/"  # default to /accounts/profile
