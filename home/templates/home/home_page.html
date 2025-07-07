@@ -1,21 +1,16 @@
-{% extends "base.html" %}
-{% load static %}
+{% extends 'base.html' %} {% load static %} {% block body_class %}
+  template-homepage
+{% endblock %} {% block extra_css %}
+  {% comment %}Delete the line below if you're just getting started and want to remove the welcome screen!{% endcomment %}
+{% endblock %} {% block content %}
+  {% comment %}Delete the line below if you're just getting started and want to remove the welcome screen!{% endcomment %}
 
-{% block body_class %}template-homepage{% endblock %}
-
-{% block extra_css %}
-
-{% comment %}
-Delete the line below if you're just getting started and want to remove the welcome screen!
-{% endcomment %}
-
-{% endblock extra_css %}
-
-{% block content %}
-
-{% comment %}
-Delete the line below if you're just getting started and want to remove the welcome screen!
-{% endcomment %}
-
-
-{% endblock content %}
+  <h1 class="text-center mt-5 text-danger">Welcome to the Home Page!</h1>
+  <div class="container text-center text-danger">
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-2">1 of 3</div>
+      <div class="col-md-auto">Variable width content</div>
+      <div class="col col-lg-2">3 of 3</div>
+    </div>
+  </div>
+{% endblock %}
